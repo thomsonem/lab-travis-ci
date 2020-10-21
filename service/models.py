@@ -113,6 +113,7 @@ class Pet(object):
     @classmethod
     def find(cls, pet_id):
         """ Query that finds Pets by their id """
+        return None
         if cls.redis.exists(pet_id):
             data = json.loads(cls.redis.get(pet_id))
             pet = Pet(data['id']).deserialize(data)
